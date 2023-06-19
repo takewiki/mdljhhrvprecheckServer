@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1686792466665.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D5D9F22A",
+    "lastKnownWriteTime" : 1686794263,
+    "last_content_update" : 1686794263965,
+    "path" : "~/app/zzy/jhhrvsqlquery/jhhrvprecheck/mdljhhrvprecheckServer/R/jhhrvstdprecheckserver.R",
+    "project_path" : "R/jhhrvstdprecheckserver.R",
+    "properties" : {
+        "cursorPosition" : "109,0",
+        "scrollLine" : "108"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
