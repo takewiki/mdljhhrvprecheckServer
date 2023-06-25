@@ -15,7 +15,7 @@
 viewsalaryodsserver <- function(input, output, session, dms_token) {
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_salaryods,
+    shiny::observeEvent(input$btn_hrv_precheck_view_salaryods,
                         {
                           # 工资ODS表异常检查
                           data = mdljhhrvPreCheckPkg::ds_salaryOdsCheck_query(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
@@ -23,9 +23,15 @@ viewsalaryodsserver <- function(input, output, session, dms_token) {
                           data = as.data.frame(data)
                           
                           data = tsdo::na_standard(data)
+                          names(data) = c('费用承担组织',
+                                          '个税申报组织',
+                                          '业务类型',
+                                          '银行-检查项',
+                                          '银行-数据源'
+                          )
                           
                           #显示数据
-                          tsui::run_dataTable2(id = 'view_data_ods', data = data)
+                          tsui::run_dataTable2(id = 'hrv_precheck_view_data_ods', data = data)
                           
                         })
     
@@ -47,7 +53,7 @@ viewsalaryodsserver <- function(input, output, session, dms_token) {
 viewsocialsecurityodsserver <- function(input, output, session, dms_token) {
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_socialsecurityods,
+    shiny::observeEvent(input$btn_hrv_precheck_view_socialsecurityods,
                         {
                           # 社保ODS表异常检查
                           data = mdljhhrvPreCheckPkg::ds_socialSecuryOdsCheck_query(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
@@ -55,9 +61,14 @@ viewsocialsecurityodsserver <- function(input, output, session, dms_token) {
                           data = as.data.frame(data)
                           
                           data = tsdo::na_standard(data)
-                          
+                          names(data) = c('费用承担组织',
+                                          '个税申报组织',
+                                          '业务类型',
+                                          '银行-检查项',
+                                          '银行-数据源'
+                          )
                           #显示数据
-                          tsui::run_dataTable2(id = 'view_data_ods', data = data)
+                          tsui::run_dataTable2(id = 'hrv_precheck_view_data_ods', data = data)
                           
                           
                           
@@ -81,7 +92,7 @@ viewsocialsecurityodsserver <- function(input, output, session, dms_token) {
 viewrulevoucherodsserver <- function(input, output, session, dms_token) {
   
   shiny::observe({
-    shiny::observeEvent(input$btn_view_rulevoucherods,
+    shiny::observeEvent(input$btn_hrv_precheck_view_rulevoucherods,
                         {
                           # 凭证规则表异常检验主要是银行类型
                           data = mdljhhrvPreCheckPkg::rule_voucherCheck_query(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
@@ -89,9 +100,14 @@ viewrulevoucherodsserver <- function(input, output, session, dms_token) {
                           data = as.data.frame(data)
                           
                           data = tsdo::na_standard(data)
-                          
+                          names(data) = c('费用承担组织',
+                                          '个税申报组织',
+                                          '业务类型',
+                                          '银行-检查项',
+                                          '银行-数据源'
+                          )
                           #显示数据
-                          tsui::run_dataTable2(id = 'view_data_ods', data = data)
+                          tsui::run_dataTable2(id = 'hrv_precheck_view_data_ods', data = data)
 
                           
                         })
@@ -114,7 +130,7 @@ viewrulevoucherodsserver <- function(input, output, session, dms_token) {
 updatesalaryodsserver <- function(input, output, session, dms_token) {
   
   shiny::observe({
-    shiny::observeEvent(input$btn_update_salaryods,
+    shiny::observeEvent(input$btn_hrv_precheck_update_salaryods,
                         {
                           # 工资ODS表异常处理
                           mdljhhrvPreCheckPkg::ds_salaryOdsCheck_deal(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
@@ -142,7 +158,7 @@ updatesalaryodsserver <- function(input, output, session, dms_token) {
 updatesocialsecurityodsserver <- function(input, output, session, dms_token) {
   
   shiny::observe({
-    shiny::observeEvent(input$btn_update_socialsecurityods,
+    shiny::observeEvent(input$btn_hrv_precheck_update_socialsecurityods,
                         {
                           # 社保ODS表异常处理
                           mdljhhrvPreCheckPkg::ds_socialSecuryOdsCheck_deal(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
@@ -170,7 +186,7 @@ updatesocialsecurityodsserver <- function(input, output, session, dms_token) {
 updaterulevoucherodsserver <- function(input, output, session, dms_token) {
   
   shiny::observe({
-    shiny::observeEvent(input$btn_update_rulevoucherods,
+    shiny::observeEvent(input$btn_hrv_precheck_update_rulevoucherods,
                         {
                           # 凭证规则表异常处理
                           mdljhhrvPreCheckPkg::rule_voucherCheck_deal(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
